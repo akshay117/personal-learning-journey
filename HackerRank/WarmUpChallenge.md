@@ -66,3 +66,19 @@ https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen
 
 
 ## Counting Valleys
+
+```java
+ public static int countingValleys(int steps, String path) {
+      int sum = 0;
+      int count = 0;
+      char[] ch = path.toCharArray();
+    for(int i=0;i<steps;i++){
+    if(ch[i]=='U'){
+      if(++sum==0)
+        count++;
+    }
+    else sum--;
+  }
+  return count;
+}
+```
