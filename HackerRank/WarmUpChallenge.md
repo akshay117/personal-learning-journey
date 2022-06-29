@@ -67,6 +67,8 @@ https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen
 
 ## Counting Valleys
 
+https://www.hackerrank.com/challenges/counting-valleys/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+
 ```java
  public static int countingValleys(int steps, String path) {
       int sum = 0;
