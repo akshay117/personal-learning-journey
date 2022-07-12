@@ -156,9 +156,91 @@ Can be combined with NOT operator to get the opposite result.
 
 ## `GROUP BY STATEMENTS`
 
+# -> GROUP BY 
+
+will allow us to aggregate data and apply functions to better understand how data is distributed per category
+
+### Aggregate Functions - Take multiple input and return a single output
+
+```
+Common aggregate functions
+
+AVG() - RETURNS A FLOATING POINT VALUE MANY DECIMAL PLACES. USE ROUND(avg(),number of precision) TO SPECIFY PRECISION.
+COUNT() 
+MAX()
+MIN()
+SUM()
+
+```
+
+Group by clause must appear right after a FROM or WHERE statement.
+
+```sql
+SELECT customer_id,staff_id,SUM(amount) FROM payment
+GROUP BY customer_id,staff_id
+ORDER BY customer_id;
+```
+```sql
+SELECT DATE (payment_date),SUM(amount) FROM payment
+GROUP BY DATE(payment_date)
+ORDER BY SUM(amount)
+```
+Challenge 1:
+
+```sql
+SELECT staff_id, COUNT(payment_id) FROM payment
+GROUP BY staff_id
+```
+
+Challenge 2:
+
+```sql
+SELECT rating, ROUND(AVG(replacement_cost),2 )
+FROM film
+GROUP BY RATING
+```
+Challenge 3:
+
+```sql
+SELECT  customer_id,SUM(amount)
+FROM payment
+GROUP BY customer_id 
+order by SUM(amount) DESC
+LIMIT 5;
+
+```
+# -> HAVING
+
+The HAVING clause allows us to filter after an aggregation has aleady taken place.
+
+```sql
+SELECT  customer_id,SUM(amount) FROM payment
+GROUP BY customer_id 
+HAVING SUM(amount) >100
+
+```
+Challenge : 
+
+```sql
+SELECT  customer_id,COUNT(payment_id) from payment
+GROUP BY customer_id
+HAVING COUNT(payment_id) >= 40;
+```
+
+
 
 ## `SQL JOINS`
 
+# AS
+
+Used in select statement only
+
+```sql
+SELECT customer_id,SUM(amount) AS total_spent
+FROM payment
+GROUP BY customer_id;
+
+```
 
 ## `ADVANCED SQL COMMANDS`
 
