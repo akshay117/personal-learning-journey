@@ -242,10 +242,132 @@ GROUP BY customer_id;
 
 ```
 
+# Inner Joins
+Set of records that are going to be common in 2 tables
+
+Syntax
+```sql
+SELECT reg_id,Login.name,log_id FROM Registration
+INNER JOIN Login
+ON Registration.name = Login.name
+```
+
+# Full Outer Joins
+They will allow us to specify how to deal with values only present in one of the tables being joined
+
+```sql
+SELECT * FROM Registration
+FULL OUTER JOIN Login
+ON Registration.name = Login.name
+```
+grab everything and fill in null values for others.
+
+
+# -> Full Outer Joins with WHERE
+Exact opposite of INNER JOIN
+
+```sql
+SELECT * FROM Registration
+FULL OUTER JOIN Login
+ON Registration.name = Login.name
+WHERE Registration.reg_id IS null OR
+login.log_id IS NULL
+```
+
+# Left Outer Joins
+Known as left join. Results in the set of records that are in the left table , if there is no match in the right table the results are null.
+
+```sql
+SELECT * FROM Registration
+LEFT OUTER JOIN Login
+ON Registration.name = Login.name
+```
+
+# -> Left Outer Joins with WHERE
+Get rows unique only to left tables
+
+```sql
+SELECT * FROM Registration
+LEFT OUTER JOIN Login
+ON Registration.name = Login.name
+WHERE Registration.reg_id IS null OR
+login.log_id IS NULL
+```
+
+
+# Right Joins
+
+```sql
+SELECT * FROM Registration
+RIGHT OUTER JOIN Login
+ON Registration.name = Login.name
+```
+
+# -> Right Outer Joins with WHERE
+
+```sql
+SELECT * FROM lOGIN
+RIGHT OUTER JOIN Registration
+ON  Login.name = Registration.name
+WHERE Login.lof_id IS null
+```
+# UNION
+Combine the resut set of two or more SELECT Statements.
+
+```sql
+SELECT * FROM TABLE_1
+UNION
+SELECT * FROM TABLE_2
+
+```
 ## `ADVANCED SQL COMMANDS`
+
+# TIMESTAMP AND EXTRACT 
+
+# MATH FUNCTIONS
+
+# MATH FUNCTIONS
+
+# STRING FUNCTIONS
+
+# SUB QUERY
+
+# SELF JOIN
+
 
 
 ## `CREATING DATABASES AND TABLES`
 
+# DATA TYPES
+
+# PRIMARY AND FOREIGN KEYS
+
+# CONSTRAINTS
+
+# CREATE
+
+# INSERT
+
+# UPDATE
+
+# DELETE / ALTER / DROP
+
 
 ## `CONDITIONAL EXPRESSIONS AND PROCEDURES`
+
+# CASE
+
+# COALESCE
+
+# NULL IF
+
+# CAST
+
+# VIEWS
+
+# IMPORT AND EXPORT FUNCTIONALITY
+
+
+
+
+
