@@ -322,9 +322,33 @@ SELECT * FROM TABLE_2
 ```
 ## `ADVANCED SQL COMMANDS`
 
-# TIMESTAMP AND EXTRACT 
+# TIMESTAMP 
 
-# MATH FUNCTIONS
+Report Back time and date information.More Useful when creating our own database rather than querying an existing db.
+
+->TIME,DATE,TIMESTAMP,TIMESTAMPZ(contains time ,date ,timezone)
+
+-> Functions : 
+
+ SHOW TIMEZONE
+
+ SELECT NOW()
+ 
+ SELECT TIMEOFDAY()
+
+ SELECT CURRENT_TIME
+
+ SELECT  CURRENT_DATE
+
+#  EXTRACT 
+Extract Allows to obtain a sub_content of a date value
+EXTRACT()
+AGE()
+TO_CHAR()
+
+```sql
+SELECT EXTRACT(YEAR FROM payment_date) AS myyear FROM payment)
+```
 
 # MATH FUNCTIONS
 
@@ -343,15 +367,48 @@ SELECT * FROM TABLE_2
 # PRIMARY AND FOREIGN KEYS
 
 # CONSTRAINTS
-
+Rules
 # CREATE
+
+SERIAL  : will create a sequence object and set the next value genereated automatically. Perfect for primary key
+```SQL
+CREATE TABLE table_name(
+  column_name TYPE column_constraint,column_name TYPE column_constraint
+)
+```
+
+```SQL
+CREATE TABLE player(
+  player_id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  age SMALLINT NOT NULL,
+)
+```
+
 
 # INSERT
 
-# UPDATE
+```SQL
+INSERT INTO table (column1,column2,...),
+VALUES
+(value1,value2..),
+(value1,value2...)
+```
 
+# UPDATE
+```sql
+UPDATE TABLE
+SET column1 = value 1,
+    column2 =value 2,..
+WHERE
+   condition    
+```
 # DELETE / ALTER / DROP
 
+```sql
+DELETE FROM table
+WHERE row_id = 1
+```
 
 ## `CONDITIONAL EXPRESSIONS AND PROCEDURES`
 
