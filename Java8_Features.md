@@ -389,3 +389,75 @@ class Test
 # Function
 
 Input-->perform some operation and produce result
+
+```java
+//Function has method apply
+interface Function<T,R>{
+    public void apply();
+}
+```
+
+```java
+import java.util.function.*;
+class Test
+{
+    public static void main(String[] args){
+        Function<Integer,Integer> f = i->i*i;
+        f.apply(10);
+    }
+}
+```
+```java
+import java.util.function.*;
+class Test
+{
+    public static void main(String[] args){
+        Function<String,Integer> f = s->s.length();
+        f.apply("akshay");
+    }
+}
+```
+
+## Function Chaining
+2 functions can be joined .
+
+```java
+f1.andThen(f2).apply(i);
+///f1 followed by f2
+f1.compose(f2).apply(i);
+//first f2 then f1
+
+```
+
+```java
+import java.util.function.*;
+class Test
+{
+    public static void main(String[] args){
+  Function<Integer,Integer> f1 = i->2*i;
+  Function<Integer,Integer> f2 = i -> i*i*i; //i becomes 4 
+  System.out.println(f1.andThen(f2).apply(2));
+  ///Output 64
+  System.out.println(f1.compose(f2).apply(2));
+  //OUTPUT 16
+    }
+}
+```
+
+# Consumer
+Consumer always take a input and never returns anything, ie it consumes.
+
+Consumer has accept method ,LIKE Function has apply,predicate has test().
+
+```java
+import java.util.function.*;
+class Test
+{
+    public static void main(String[] args){
+  Consumer<String> c = s-> System.out.println(s);
+  c.accept("akshay)
+
+
+    }
+}
+```
