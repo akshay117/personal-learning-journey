@@ -461,3 +461,188 @@ class Test
     }
 }
 ```
+
+# Consumer  Chaining
+Consumer can be also chained, using andThen
+
+```java
+Consumer<Movie> c1 = m-> System.out.println(m.name + "NAME OF MOVIE);
+Consumer<Movie> c2 = m-> System.out.println(m.name + " READY TO RELEASE");
+
+Movie m = new Movie("Spider");
+c1.accept(m);
+
+Consumer<Movie cc = c1.andThen(c2);
+```
+
+# Supplier
+
+Just supply my required objects and it wont take any input
+it has method get()
+```java
+class Test
+{
+    public static void main(String[] args){
+        Supplier<String> s = ()->{
+            String otp= "";
+            for(int i=0;i<6;i++){
+                otp=otp+(int)Math.random()*10);
+            }
+            return otp;
+        }
+        s.get();
+        s.get();
+    }
+    
+}
+```
+
+# Summary
+
+Predicate---> test()
+
+Function----> apply()
+
+Consumer----->accept()
+
+Supplier------>get()
+
+
+# Two Input Arguments
+
+1.Check the sum of 2 given numbers is even or not?
+
+BiPredicate
+
+BiConsumer
+
+BiFunction
+
+**AutoBoxing & AutoUnboxing**
+:Conversion of primitive to wraper objects and wise versa.may cause performance issues.
+
+# **Primitive version of Functional Interfaces**
+
+```
+IntPredicate p = i->i%2==0;
+```
+Similary other datatypes are also present
+
+**Primitive Version for Function**
+
+IntFunction
+
+DoubleFunction 
+
+# Additional Functional Interfaces
+
+BinaryOperator
+
+UnaryOperator
+
+Search for more and learn about them in java docs.
+
+# Method and Constructor Reference.
+
+**Lambda Expression alternate**
+ Using Method and Constructor reference we can reuse code.
+
+ Advantage : Code Reuseability
+
+ ```JAVA
+class Test {
+  public static void m1(){
+     for(int i = 0 ; i<10 ;i++){
+       System.out.println("Child Thread")
+       }
+  }
+
+    public static void main(String[] args){
+       Runnable r = Test::m1;  //Functional interface internelly reference Test class method.
+       //using  :: operator
+       Threadt t =  new Thread(r); 
+       t.start();
+
+       for(int i = 0 ; i<10 ;i++){
+       System.out.println("Main Thread")
+       }
+    }
+}
+
+ ```
+
+ # Streams
+
+ # Collections and Stream
+
+ If we want to represent a group of objects as a single entity then we go for **Collections**
+
+ If we want to process objects from the Collection use **Stream**
+
+```
+Stream s = c.stream();
+stream is an interface present in java.util.stream pkg
+ ```
+ Filter elements based on condition : the numbers are even or not.
+**Use Filter method**
+```
+ArrayList<Integer> l = new Arrayist<Integer>();
+List<Integer> l2 = l.stream().filter(i->i%2==0).collect(Collectors.toList());
+ ```
+
+ For a Student Add 5 grace marks . We use **Map** method
+
+ ```java
+ List<Integer> l2 = l.stream().map(i->i+5).collect(Collectors.toList());
+
+ ```   
+
+
+# filter ()
+
+Filter(Predicate)
+
+Predicate return boolean
+
+# map()
+
+Map(result)
+
+Do some operations and return result.
+
+# collect()
+
+# count()
+
+# sorted() - normal  / natural sorting
+Comparable interface is used
+
+Contain compareTo() method.
+
+i1.compareTo(i2)
+
+# sorted(Comparator) - for customised sorting
+
+Comparator  has compare() method;
+use lamda expression'
+
+# min(Comparator) & max(Comparator)
+  use .get() at the end of stream pipe.
+
+# forEach()
+
+forEach(System.out::println);
+
+# toArray()
+
+to convert stream of objects to Array.
+
+l.stream().toArray(Integer[]::new);
+
+# Stream.of();
+
+Streams applicable for whereever group of values are there.Happily we can go for streams concept.
+This is not just for collections.
+```java
+Stream s = Stream.of(9,99,999,999);
+```
