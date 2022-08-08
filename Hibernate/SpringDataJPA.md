@@ -7,7 +7,7 @@ Programming technique to map application domain model objects to relational data
 
 ## JPA
 
-Jakarta persistance Api- Standard specification to manage object relation mapping to relational database. Provides platform to work with objects instead of using 
+Jakarta persistance Api- Standard specification to manage object relation mapping to relational database. Provides platform to work with objects instead of using sql statements
 
 ## Hibernate
 
