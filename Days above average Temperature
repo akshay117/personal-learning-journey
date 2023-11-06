@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+  
+    public static void main(String[] args) {
+
+      Scanner console = new Scanner(System.in);
+      System.out.println("How many days temperature");
+      int numOfDays = console.nextInt();
+      int sum = 0;
+
+      int[] temps = new int[numOfDays];
+      
+      for(int i = 0 ; i < numOfDays ; i ++ ){
+        System.out.println("Day's " + i+1 + " temperature .. ?");
+        temps[i] = console.nextInt();
+        sum = sum + temps[i] ;
+      }
+
+      double average = sum / numOfDays;
+
+      int above = 0;
+      for(int i = 0 ; i< temps.length ; i++){
+        if(temps[i] > average){
+          above++;
+        }
+      }
+      System.out.println("Average:" + average );
+      System.out.println("Days Above average temperature:" + above );
+      
+      
+    }
+}
